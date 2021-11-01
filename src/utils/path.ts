@@ -1,6 +1,7 @@
 import path from "path";
 
-export const isAbsolutePath = (path: string): boolean => /^(?:\/|(?:[A-Za-z]:)?[/\\|])/.test(path);
+// fix '//' bug
+export const isAbsolutePath = (path: string): boolean => /^(?:\/|(?:[A-Za-z]:)?[/\\|])(?![/\\])/.test(path);
 
 export const isRelativePath = (path: string): boolean => /^\.?\.[/\\]/.test(path);
 
