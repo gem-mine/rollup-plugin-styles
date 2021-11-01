@@ -109,6 +109,11 @@ const plugin: PluginCreator<UrlOptions> = (options = {}) => {
           // Skip Data URI
           if (dataURIRe.test(url)) return;
 
+          // 兼容fish
+          if(/gcdncs\.101\.com/.test(url)) {
+            return
+          }
+
           // Skip Web URLs
           if (!isAbsolutePath(url)) {
             try {
